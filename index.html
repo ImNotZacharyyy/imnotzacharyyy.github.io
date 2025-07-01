@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Channel Name</title>
+  <title>ImNotZacharyy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    /* Basic reset & style */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0e0e0e;
+      background: #0f0f0f;
       color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 100vh;
       padding: 20px;
     }
 
@@ -25,104 +24,153 @@
 
     header h1 {
       font-size: 3rem;
-      letter-spacing: 2px;
-      color: #9146ff; /* Twitch purple vibe */
-      margin-bottom: 8px;
+      color: #FE5000;
+      text-shadow: 0 0 10px #FE5000;
     }
 
     header p {
       font-size: 1.2rem;
-      color: #aaa;
+      color: #bbb;
     }
 
     .social-links {
       display: flex;
-      gap: 30px;
-      margin-bottom: 40px;
+      gap: 20px;
+      margin: 20px 0;
     }
 
     .social-links a {
-      color: #fff;
-      font-size: 2.5rem;
-      text-decoration: none;
-      transition: color 0.3s;
+      color: white;
+      font-size: 2rem;
+      transition: transform 0.3s;
     }
 
     .social-links a:hover {
-      color: #9146ff;
+      transform: scale(1.2);
+      color: #FE5000;
     }
 
-    main {
-      max-width: 800px;
+    .section {
+      max-width: 900px;
       width: 100%;
+      margin: 40px auto;
       text-align: center;
     }
 
-    main h2 {
-      margin-bottom: 15px;
+    .section h2 {
       font-size: 2rem;
-      color: #f0a500;
+      color: #FE5000;
+      margin-bottom: 10px;
     }
 
-    main p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #ddd;
+    .twitch-button {
+      background-color: #9146FF;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .twitch-button:hover {
+      background-color: #772ce8;
+    }
+
+    iframe {
+      border-radius: 10px;
+      margin-top: 10px;
     }
 
     footer {
-      margin-top: auto;
-      padding: 15px 0;
+      margin-top: 60px;
+      color: #777;
       font-size: 0.9rem;
-      color: #666;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #fff;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #444;
+    }
+
+    th {
+      background-color: #222;
+      color: #FE5000;
+    }
+
+    tr.highlight {
+      background-color: #FE5000;
+      color: #000;
     }
   </style>
-  <!-- Icons CDN for social media -->
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-
 </head>
 <body>
   <header>
-    <h1>YourChannelName</h1>
-    <p>Streaming daily on Twitch, YouTube, & TikTok</p>
+    <h1>ImNotZacharyy</h1>
+    <p>Gaming, streaming, vibing — live on Twitch, YouTube & TikTok!</p>
   </header>
 
-  <nav class="social-links" aria-label="Social media links">
-    <a href="https://twitch.tv/ImNotZacharyyyy" target="_blank" rel="noopener" title="Twitch">
-      <i class="fab fa-twitch"></i>
-    </a>
-    <a href="https://youtube.com/@Imnotzacharyy" target="_blank" rel="noopener" title="YouTube">
-      <i class="fab fa-youtube"></i>
-    </a>
-    <a href="https://tiktok.com/@ImNotZacharyyyy" target="_blank" rel="noopener" title="TikTok">
-      <i class="fab fa-tiktok"></i>
-    </a>
-  </nav>
+  <div class="social-links">
+    <a href="https://twitch.tv/ImNotZacharyyyy" target="_blank" title="Twitch"><i class="fab fa-twitch"></i></a>
+    <a href="https://youtube.com/@ImNotZacharyy" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://tiktok.com/@ImNotZacharyyyy" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+  </div>
 
-  <main>
+  <section class="section">
     <h2>About Me</h2>
-    <p>
-      Yo! I’m ImNotZacharyy— bringing the hype every day with gaming, streams, and chill vibes.
-      Follow me to catch live gameplay, funny moments, and exclusive TikTok clips.
-    </p>
+    <p>Yo! I’m Zachary — aka ImNotZacharyy. I stream chill vibes, hype gameplay, and drop funny edits on all platforms. Tap in and join the community!</p>
+  </section>
 
-    <h2>Latest Stream</h2>
-<iframe
-  src="https://player.twitch.tv/?channel=imnotzacharyyyy&parent=imnotzacharyy.github.io"
-  height="360"
-  width="640"
-  frameborder="0"
-  scrolling="no"
-  allowfullscreen="true"
-></iframe>
+  <section class="section">
+    <h2>Watch Me Live</h2>
+    <a class="twitch-button" href="https://twitch.tv/ImNotZacharyyyy" target="_blank">🔴 Watch Live on Twitch</a>
+  </section>
 
-  </main>
+  <section class="section">
+    <h2>Latest YouTube Video</h2>
+    <iframe width="100%" height="400" src="https://www.youtube.com/embed/LZJOgARWMW4?si=ogDewnUb8s82l2LM" allowfullscreen></iframe>
+  </section>
+
+  <section class="section">
+    <h2>Latest TikTok</h2>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ImNotZacharyyyy" data-unique-id="ImNotZacharyyyy">
+      <section>Loading TikTok...</section>
+    </blockquote>
+    <script async src="https://www.tiktok.com/embed.js"></script>
+  </section>
+
+  <section class="section">
+    <h2>Stream Schedule</h2>
+    <table id="schedule-table">
+      <tr><th>Day</th><th>Platform</th><th>Time (ET)</th><th>Stream Type</th></tr>
+      <tr><td>Monday</td><td>Twitch</td><td>7 PM</td><td>Modding Monday</td></tr>
+      <tr><td>Tuesday</td><td>TikTok</td><td>8 PM</td><td>Shorts Drop</td></tr>
+      <tr><td>Wednesday</td><td>Twitch</td><td>7 PM</td><td>Variety Chill</td></tr>
+      <tr><td>Friday</td><td>YouTube</td><td>5 PM</td><td>Video Upload</td></tr>
+      <tr><td>Saturday</td><td>Twitch</td><td>8 PM</td><td>Bonus Stream</td></tr>
+    </table>
+  </section>
 
   <footer>
-    &copy; 2025 ImNotZacharyy— All rights reserved
+    &copy; 2025 ImNotZacharyy — All rights reserved
   </footer>
+
+  <script>
+    const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+    const rows = document.querySelectorAll('#schedule-table tr');
+    rows.forEach((row, index) => {
+      if (index === 0) return;
+      if (row.children[0].textContent === today) {
+        row.classList.add('highlight');
+      }
+    });
+  </script>
 </body>
 </html>
