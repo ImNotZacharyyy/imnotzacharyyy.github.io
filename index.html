@@ -1,176 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ImNotZacharyy</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0f0f0f;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      color: #FE5000;
-      text-shadow: 0 0 10px #FE5000;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #bbb;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 20px;
-      margin: 20px 0;
-    }
-
-    .social-links a {
-      color: white;
-      font-size: 2rem;
-      transition: transform 0.3s;
-    }
-
-    .social-links a:hover {
-      transform: scale(1.2);
-      color: #FE5000;
-    }
-
-    .section {
-      max-width: 900px;
-      width: 100%;
-      margin: 40px auto;
-      text-align: center;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      color: #FE5000;
-      margin-bottom: 10px;
-    }
-
-    .twitch-button {
-      background-color: #9146FF;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 1.2rem;
-      display: inline-block;
-      margin-top: 10px;
-    }
-
-    .twitch-button:hover {
-      background-color: #772ce8;
-    }
-
-    iframe {
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-
-    footer {
-      margin-top: 60px;
-      color: #777;
-      font-size: 0.9rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      color: #fff;
-    }
-
-    th, td {
-      padding: 12px;
-      border: 1px solid #444;
-    }
-
-    th {
-      background-color: #222;
-      color: #FE5000;
-    }
-
-    tr.highlight {
-      background-color: #FE5000;
-      color: #000;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Streamer.bot Commands</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>ImNotZacharyy</h1>
-    <p>Gaming, streaming, vibing — live on Twitch, YouTube & TikTok!</p>
-  </header>
 
-  <div class="social-links">
-    <a href="https://twitch.tv/ImNotZacharyyyy" target="_blank" title="Twitch"><i class="fab fa-twitch"></i></a>
-    <a href="https://youtube.com/@ImNotZacharyy" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="https://tiktok.com/@ImNotZacharyyyy" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-  </div>
+<h1>🎮 Streamer.bot Commands</h1>
+<button class="toggle-btn" onclick="toggleTheme()">Toggle Light/Dark Mode</button>
+<input type="text" id="search" placeholder="Search commands like !lurk..." />
 
-  <section class="section">
-    <h2>About Me</h2>
-    <p>Yo! I’m Zachary — aka ImNotZacharyy. I stream chill vibes, hype gameplay, and drop funny edits on all platforms. Tap in and join the community!</p>
-  </section>
+<div class="command-section" id="commands">
+  <h2>📜 All Chat Commands</h2>
+  <ul>
+    <li><span class="command">!accountage</span><span class="description">🗓️ Check how old a Twitch account is</span></li>
+    <li><span class="command">!chatstats</span><span class="description">📊 Shows your chat activity stats</span></li>
+    <li><span class="command">!clip</span><span class="description">🎬 Create a clip of the stream</span></li>
+    <li><span class="command">!commands</span><span class="description">📖 Lists available commands</span></li>
+    <li><span class="command">!flipcoin</span><span class="description">🪙 Flip a coin in chat</span></li>
+    <li><span class="command">!followage</span><span class="description">⏳ How long you’ve followed</span></li>
+    <li><span class="command">!fortune</span><span class="description">🔮 Tells your fortune</span></li>
+    <li><span class="command">!lurk</span><span class="description">👀 Let everyone know you're lurking</span></li>
+    <li><span class="command">!party</span><span class="description">🎉 Party vibes in the chat</span></li>
+    <li><span class="command">!setgame</span><span class="description">🎮 Mods can change game category</span></li>
+    <li><span class="command">!settitle</span><span class="description">✏️ Mods can update the stream title</span></li>
+    <li><span class="command">!shoutout</span><span class="description">📢 Shout out another streamer</span></li>
+    <li><span class="command">!time</span><span class="description">🕒 Current time info</span></li>
+    <li><span class="command">!tip</span><span class="description">💸 Link or reminder to tip the streamer</span></li>
+    <li><span class="command">!translate</span><span class="description">🌐 Translate text</span></li>
+    <li><span class="command">!uptime</span><span class="description">📺 How long the stream has been live</span></li>
+    <li><span class="command">!watchtime</span><span class="description">🎥 How much you’ve watched the stream</span></li>
+    <li><span class="command">!whodowehate</span><span class="description">💀 just do the command</span></li>
+    <li><span class="command">!wishlist</span><span class="description">🛍️ Look at my wishlist</span></li>
+  </ul>
+</div>
 
-  <section class="section">
-    <h2>Watch Me Live</h2>
-    <a class="twitch-button" href="https://twitch.tv/ImNotZacharyyyy" target="_blank">🔴 Watch Live on Twitch</a>
-  </section>
+<div id="status">Connecting to Streamer.bot WebSocket...</div>
 
-  <section class="section">
-    <h2>Latest YouTube Video</h2>
-    <iframe width="100%" height="400" src="https://www.youtube.com/embed/LZJOgARWMW4?si=ogDewnUb8s82l2LM" allowfullscreen></iframe>
-  </section>
-
-  <section class="section">
-    <h2>Latest TikTok</h2>
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ImNotZacharyyyy" data-unique-id="ImNotZacharyyyy">
-      <section>Loading TikTok...</section>
-    </blockquote>
-    <script async src="https://www.tiktok.com/embed.js"></script>
-  </section>
-
-  <section class="section">
-    <h2>Stream Schedule</h2>
-    <table id="schedule-table">
-      <tr><th>Day</th><th>Platform</th><th>Time (ET)</th><th>Stream Type</th></tr>
-      <tr><td>Monday</td><td>Twitch</td><td>7 PM</td><td>Modding Monday</td></tr>
-      <tr><td>Tuesday</td><td>TikTok</td><td>8 PM</td><td>Shorts Drop</td></tr>
-      <tr><td>Wednesday</td><td>Twitch</td><td>7 PM</td><td>Variety Chill</td></tr>
-      <tr><td>Friday</td><td>YouTube</td><td>5 PM</td><td>Video Upload</td></tr>
-      <tr><td>Saturday</td><td>Twitch</td><td>8 PM</td><td>Bonus Stream</td></tr>
-    </table>
-  </section>
-
-  <footer>
-    &copy; 2025 ImNotZacharyy — All rights reserved
-  </footer>
-
-  <script>
-    const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
-    const rows = document.querySelectorAll('#schedule-table tr');
-    rows.forEach((row, index) => {
-      if (index === 0) return;
-      if (row.children[0].textContent === today) {
-        row.classList.add('highlight');
-      }
-    });
-  </script>
+<script src="script.js"></script>
 </body>
 </html>
