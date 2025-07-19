@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0286b4d5-eaef-4808-86d0-0cb1ba77d434" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/_headers" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pollstyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,9 +16,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -71,7 +71,8 @@
       <option name="presentableId" value="Default" />
       <updated>1752795247951</updated>
       <workItem from="1752795249208" duration="2885000" />
-      <workItem from="1752891493662" duration="7135000" />
+      <workItem from="1752891493662" duration="7736000" />
+      <workItem from="1752968977358" duration="40000" />
     </task>
     <servers />
   </component>
@@ -84,7 +85,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/login.js</url>
           <line>49</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
