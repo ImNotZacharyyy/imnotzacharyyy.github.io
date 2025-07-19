@@ -1,44 +1,82 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Streamer.bot Commands</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zachary's Creator Hub</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<header>
+  <div class="branding">ImNotZacharyy</div>
+  <div class="header-right">
+    <button id="theme-toggle" class="theme-toggle-btn">Dark Mode</button>
+    <button onclick="window.location.href='logi.html'">Admin Login (DONT WORK)</button>
+    <button id="logout-btn" style="display:none;">Logout</button>
+  </div>
+</header>
 
-<h1>🎮 Streamer.bot Commands</h1>
-<button class="toggle-btn" onclick="toggleTheme()">Toggle Light/Dark Mode</button>
-<input type="text" id="search" placeholder="Search commands like !lurk..." />
+<main>
+  <section class="social-links" aria-label="Social media links">
+    <a href="https://www.youtube.com/@ImNotZacharyy" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.snapchat.com/add/imnotzacharyyy" target="_blank" class="social-icon youtube"><i class="fa-brands fa-snapchat"></i></a>
+    <a href="https://twitter.com/ImNotZacharyyy" target="_blank" class="social-icon x"><i class="fab fa-twitter"></i></a>
+    <a href="https://bsky.app/profile/imnotzacharyy.bsky.social" target="_blank" class="social-icon bluesky"><i class="fa-brands fa-bluesky"></i></a>
+    <a href="https://instagram.com/imnotzacharyyyy_" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://discord.gg/nmVusrqX6X" target="_blank" class="social-icon discord"><i class="fab fa-discord"></i></a>
+    <a href="https://www.twitch.tv/imnotzacharyyyy" target="_blank" class="social-icon twitch"><i class="fab fa-twitch"></i></a>
+  </section>
 
-<div class="command-section" id="commands">
-  <h2>📜 All Chat Commands</h2>
-  <ul>
-    <li><span class="command">!accountage</span><span class="description">🗓️ Check how old a Twitch account is</span></li>
-    <li><span class="command">!chatstats</span><span class="description">📊 Shows your chat activity stats</span></li>
-    <li><span class="command">!clip</span><span class="description">🎬 Create a clip of the stream</span></li>
-    <li><span class="command">!commands</span><span class="description">📖 Lists available commands</span></li>
-    <li><span class="command">!flipcoin</span><span class="description">🪙 Flip a coin in chat</span></li>
-    <li><span class="command">!followage</span><span class="description">⏳ How long you’ve followed</span></li>
-    <li><span class="command">!fortune</span><span class="description">🔮 Tells your fortune</span></li>
-    <li><span class="command">!lurk</span><span class="description">👀 Let everyone know you're lurking</span></li>
-    <li><span class="command">!party</span><span class="description">🎉 Party vibes in the chat</span></li>
-    <li><span class="command">!setgame</span><span class="description">🎮 Mods can change game category</span></li>
-    <li><span class="command">!settitle</span><span class="description">✏️ Mods can update the stream title</span></li>
-    <li><span class="command">!shoutout</span><span class="description">📢 Shout out another streamer</span></li>
-    <li><span class="command">!time</span><span class="description">🕒 Current time info</span></li>
-    <li><span class="command">!tip</span><span class="description">💸 Link or reminder to tip the streamer</span></li>
-    <li><span class="command">!translate</span><span class="description">🌐 Translate text</span></li>
-    <li><span class="command">!uptime</span><span class="description">📺 How long the stream has been live</span></li>
-    <li><span class="command">!watchtime</span><span class="description">🎥 How much you’ve watched the stream</span></li>
-    <li><span class="command">!whodowehate</span><span class="description">💀 just do the command</span></li>
-    <li><span class="command">!wishlist</span><span class="description">🛍️ Look at my wishlist</span></li>
-  </ul>
+  <section class="bio">
+    <p>Yo! I’m Zachary, a coder and content creator making vibes on YouTube and Twitch. Here to share cool tech, gaming, and behind-the-scenes. Stay tuned!</p>
+  </section>
+
+  <section class="media-embeds">
+    <div class="embed-container">
+      <iframe src="https://www.youtube.com/embed/LZJOgARWMW4" allowfullscreen></iframe>
+    </div>
+    <div class="embed-container">
+      <iframe src="https://player.twitch.tv/?channel=imnotzacharyyyy&parent=localhost" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section class="announcements">
+    <h2>Announcements</h2>
+    <div class="announcement-list" id="announcement-list">
+      <div class="announcement">Welcome to my new creator hub! Stay tuned for updates.</div>
+      <div class="announcement">New video dropping this Friday! 🔥</div>
+    </div>
+  </section>
+
+
+  <section class="auth" id="auth-section" style="display:none;">
+    <label for="email-input">Email</label>
+    <input type="email" id="email-input" placeholder="admin@example.com" required />
+    <label for="password-input">Password</label>
+    <input type="password" id="password-input" placeholder="password" required />
+    <button id="login-submit-btn">Login</button>
+  </section>
+</main>
+
+<div id="auth-modal">
+  <section id="auth-section">
+    <h2 id="auth-title">Admin Login</h2>
+    <label for="email-input">Email</label>
+    <input type="email" id="email-input" placeholder="admin@example.com" required />
+    <label for="password-input">Password</label>
+    <input type="password" id="password-input" placeholder="password" required />
+    <button id="login-submit-btn">Login</button>
+    <button id="auth-cancel-btn">Cancel</button>
+  </section>
 </div>
 
-<div id="status">Connecting to Streamer.bot WebSocket...</div>
-
-<script src="script.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

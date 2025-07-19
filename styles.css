@@ -1,0 +1,176 @@
+/* styles.css */
+
+:root {
+    --bg-light: #f9f9f9;
+    --bg-dark: #1e1e1e;
+    --text-light: #1e1e1e;
+    --text-dark: #f9f9f9;
+    --primary: #ff5e00;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+[data-theme='dark'] body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary);
+    padding: 10px 20px;
+    color: white;
+}
+
+.branding {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header-right button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.social-icon i {
+    font-size: 24px;
+    color: inherit;
+    transition: transform 0.2s ease;
+}
+
+.social-icon:hover i {
+    transform: scale(1.2);
+}
+
+.bluesky i {
+    color: #0085FF;
+}
+.youtube i {
+    color: #FF0000;
+}
+.x i {
+    color: black;
+}
+.instagram i {
+    color: #E1306C;
+}
+.discord i {
+    color: #5865F2;
+}
+.twitch i {
+    color: #9146FF;
+}
+
+.bio {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.embed-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.embed-container iframe {
+    width: 90%;
+    height: 300px;
+    border: none;
+    border-radius: 10px;
+}
+
+.announcements {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.announcement-list {
+    background: #eee;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.announcement {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+.announcement:last-child {
+    border-bottom: none;
+}
+
+.admin-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.admin-form textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+.admin-form button {
+    padding: 8px 16px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#auth-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+#auth-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+[data-theme='dark'] #auth-section {
+    background: #333;
+    color: white;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
