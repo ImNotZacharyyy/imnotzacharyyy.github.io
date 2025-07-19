@@ -5,27 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0286b4d5-eaef-4808-86d0-0cb1ba77d434" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firebase.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loginstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/signup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/toggleForms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/imnotzacharyy.github.io.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pollstyle.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1752795247951</updated>
       <workItem from="1752795249208" duration="2885000" />
-      <workItem from="1752891493662" duration="6888000" />
+      <workItem from="1752891493662" duration="7026000" />
     </task>
     <servers />
   </component>
