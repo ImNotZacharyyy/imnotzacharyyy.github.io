@@ -77,6 +77,14 @@ header {
     color: #9146FF;
 }
 
+
+.announcement {
+    background: #222;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
+
 .bio {
     text-align: center;
     max-width: 600px;
@@ -174,3 +182,98 @@ input[type="password"] {
     border-radius: 6px;
     border: 1px solid #ccc;
 }
+
+.auth-page {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 20px;
+    background: var(--bg-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+[data-theme='dark'] .auth-page {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #000;
+}
+
+[data-theme='dark'] .auth-form input {
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+.auth-form button {
+    padding: 10px 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.auth-form a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.video-thumb img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.video-thumb img:hover {
+    transform: scale(1.05);
+}
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 960px; /* or whatever width fits your design */
+    margin: 0 auto;    /* THIS centers the whole grid horizontally */
+    padding: 0 10px;   /* optional: some horizontal padding on small screens */
+}
+
+
+.admin-panel {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background: var(--bg-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+[data-theme='dark'] .admin-panel {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.admin-panel h1 {
+    text-align: center;
+}
+
+.admin-panel button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+

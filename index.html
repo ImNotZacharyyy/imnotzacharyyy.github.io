@@ -4,6 +4,8 @@
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
@@ -40,40 +42,31 @@
   </section>
 
   <section class="media-embeds">
-    <div class="embed-container">
-      <iframe src="https://www.youtube.com/embed/LZJOgARWMW4" allowfullscreen></iframe>
+    <div class="video-grid">
+      <div class="video-thumb">
+        <!-- embed video or thumbnail image -->
+        <iframe src="https://www.youtube.com/embed/Cg6olwbzBA0" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-thumb">
+        <iframe src="https://www.youtube.com/embed/LZJOgARWMW4" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-thumb">
+        <iframe src="https://www.youtube.com/embed/RUOxecLmDzU" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-thumb">
+        <iframe src="https://www.youtube.com/embed/soz-EXrzR3I" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-thumb">
+        <iframe src="https://www.youtube.com/embed/wv4NZNe7A3o" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-thumb">
+        <iframe src="https://www.youtube.com/embed/5dL-yvakBdg" frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
-  </section>
 
-  <section class="announcements">
-    <h2>Announcements</h2>
-    <div class="announcement-list" id="announcement-list">
-      <div class="announcement">Welcome to my new creator hub! Stay tuned for updates.</div>
-      <div class="announcement">New video dropping this Friday! 🔥</div>
-    </div>
   </section>
 
 
-  <section class="auth" id="auth-section" style="display:none;">
-    <label for="email-input">Email</label>
-    <input type="email" id="email-input" placeholder="admin@example.com" required />
-    <label for="password-input">Password</label>
-    <input type="password" id="password-input" placeholder="password" required />
-    <button id="login-submit-btn">Login</button>
-  </section>
-</main>
-
-<div id="auth-modal">
-  <section id="auth-section">
-    <h2 id="auth-title">Admin Login</h2>
-    <label for="email-input">Email</label>
-    <input type="email" id="email-input" placeholder="admin@example.com" required />
-    <label for="password-input">Password</label>
-    <input type="password" id="password-input" placeholder="password" required />
-    <button id="login-submit-btn">Login</button>
-    <button id="auth-cancel-btn">Cancel</button>
-  </section>
-</div>
 
 <script src="main.js"></script>
 </body>
