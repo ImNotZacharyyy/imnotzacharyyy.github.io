@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0286b4d5-eaef-4808-86d0-0cb1ba77d434" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/commands.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginstyle.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pollstyle.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/toggleForms.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +40,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.commands.html.executor": "Run",
     "JavaScript Debug.index.html.executor": "Run",
     "JavaScript Debug.login.html.executor": "Run",
     "JavaScript Debug.te.html.executor": "Run",
@@ -87,7 +77,8 @@
       <workItem from="1752891493662" duration="7736000" />
       <workItem from="1752968977358" duration="40000" />
       <workItem from="1752980523455" duration="260000" />
-      <workItem from="1753062799757" duration="1366000" />
+      <workItem from="1753062799757" duration="3842000" />
+      <workItem from="1753213435785" duration="150000" />
     </task>
     <servers />
   </component>
