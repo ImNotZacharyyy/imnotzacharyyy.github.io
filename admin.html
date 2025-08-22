@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MG408V56NM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-MG408V56NM');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Panel</title>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 860px; margin: 3rem auto; padding: 0 1rem; }
+        .alert { padding: 1rem; border-radius: 12px; }
+        .ok { background: #e6fff7; border: 1px solid #b8f5e3; }
+        .err { background: #ffe9e9; border: 1px solid #ffb8b8; }
+    </style>
+</head>
+<body>
+<h1>Admin Panel</h1>
+<div id="gate" class="alert">Checking access…</div>
+
+<div id="admin-content" style="display:none;">
+    <p class="ok alert">Welcome, Admin. (Put your admin UI here.)</p>
+
+    <!-- Example: Promote a user by email -->
+    <h3>Promote User to Admin</h3>
+    <input id="promoteEmail" type="email" placeholder="someone@example.com" />
+    <button id="promoteBtn">Promote</button>
+    <div id="promoteMsg"></div>
+</div>
+
+<script>
+    // Same Firebase config
+    const firebaseConfig = {
+
+        apiKey: "AIzaSyCXCvtJjto-D9rDw19fAOHe1lE85uxhyOA",
+
+        authDomain: "zacharys-creator-hub.firebaseapp.com",
+
+        projectId: "zacharys-creator-hub",
+
+        storageBucket: "zacharys-creator-hub.firebasestorage.app",
+
+        messagingSenderId: "673541614337",
+
+        appId: "1:673541614337:web:08dda860dfd2109e6f4900",
+
+        measurementId: "G-MG408V56NM"
+
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    const gate = document.getElementById('gate');
+    const adminContent = document.getElementById('admin-content');
+    const promoteEmail = document.getElementById('promoteEmail');
+    const promoteBtn = document.getElementById('promoteBtn');
+    const promoteMsg = document.getElementById('promoteMsg');
+
+    async function isAdmin(uid) {
+        const snap = await db.collection('users').doc(uid).get();
+        return snap.exists && snap.data().role === 'admin';
+    }
+
+    auth.onAuthStateChanged(async (user) => {
+        if (!user) {
+            gate.className = 'alert err';
+            gate.textContent = 'You must be signed in. Redirecting to login…';
+            setTimeout(() => window.location.href = 'logi.html', 700);
+            return;
+        }
+
+        if (await isAdmin(user.uid)) {
+            gate.style.display = 'none';
+            adminContent.style.display = 'block';
+        } else {
+            gate.className = 'alert err';
+            gate.textContent = 'Access denied. Redirecting…';
+            setTimeout(() => window.location.href = '/', 800);
+        }
+    });
+
+    // Naive example: promote by email (only works if this page is protected by rules)
+    promoteBtn.onclick = async () => {
+        promoteMsg.textContent = '';
+        try {
+            // Find user doc by email (client-side query; in real apps prefer an admin function or custom claims)
+            const q = await db.collection('users').where('email','==', promoteEmail.value).limit(1).get();
+            if (q.empty) {
+                promoteMsg.textContent = 'No user found with that email.';
+                return;
+            }
+            const docRef = q.docs[0].ref;
+            await docRef.update({ role: 'admin' });
+            promoteMsg.textContent = 'User promoted to admin.';
+        } catch (e) {
+            promoteMsg.textContent = e.message;
+        }
+    };
+</script>
+</body>
+</html>
