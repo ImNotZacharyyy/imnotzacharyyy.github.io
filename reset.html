@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Reset Password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Firebase compat SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 520px; margin: 3rem auto; padding: 0 1rem; }
+        h1 { margin-bottom: 1rem; }
+        input { width: 100%; padding: .7rem; margin:.4rem 0; border:1px solid #ccc; border-radius:8px; }
+        button { padding:.7rem 1rem; border:0; border-radius:8px; cursor:pointer; }
+        .err { color:#b00020; margin-top:.6rem; }
+        .ok { color:#0a7; margin-top:.6rem; }
+        .muted { color:#666; }
+    </style>
+</head>
+<body>
+<h1>Reset Password</h1>
+
+<div id="stageCheck" class="muted">Checking reset link…</div>
+
+<div id="stageForm" style="display:none;">
+    <input id="newPass" type="password" placeholder="New password (min 6 chars)">
+    <button id="applyBtn">Set new password</button>
+    <div id="msg"></div>
+</div>
+
+<script>
+    // SAME project config as logi.html
+    const firebaseConfig = {
+        apiKey: "AIzaSyCXCvtJjto-D9rDw19fAOHe1lE85uxhyOA",
+        authDomain: "zacharys-creator-hub.firebaseapp.com",
+        projectId: "zacharys-creator-hub",
+        appId: "1:673541614337:web:08dda860dfd2109e6f4900"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    const stageCheck = document.getElementById('stageCheck');
+    const stageForm  = document.getElementById('stageForm');
+    const newPass    = document.getElementById('newPass');
+    const applyBtn   = document.getElementById('applyBtn');
+    const msg        = document.getElementById('msg');
+
+    function show(kind, text) { msg.className = kind; msg.textContent = text; }
+
+    // Parse Firebase email link params: ?mode=resetPassword&oobCode=...&continueUrl=...
+    const params = new URLSearchParams(location.search);
+    const mode   = params.get('mode');
+    const oob    = params.get('oobCode');
+
+    if (mode !== 'resetPassword' || !oob) {
+        stageCheck.textContent = 'Invalid reset link.';
+    } else {
+        auth.verifyPasswordResetCode(oob)
+            .then(() => {
+                stageCheck.style.display = 'none';
+                stageForm.style.display = 'block';
+            })
+            .catch((e) => {
+                stageCheck.textContent = 'Reset link is invalid or expired.';
+                console.error(e);
+            });
+    }
+
+    applyBtn.onclick = async () => {
+        try {
+            await auth.confirmPasswordReset(oob, newPass.value);
+            show('ok', 'Password updated! You can now log in.');
+            setTimeout(() => location.href = '/logi.html', 800);
+        } catch (e) {
+            show('err', e.message);
+            console.error(e);
+        }
+    };
+</script>
+</body>
+</html>

@@ -79,6 +79,8 @@
     const googleBtn = $('google');
     const statusEl = $('status');
     const msgEl = $('msg');
+    const forgotBtn = $('forgot');
+
 
     function showMsg(kind, text) {
         msgEl.className = kind;
@@ -187,6 +189,31 @@
             console.error('Google sign-in error:', e);
         }
     };
+
+    // --- 6) Forgot password ? send email with link back to reset.html ---
+    forgotBtn.onclick = async () => {
+        showMsg('', '');
+        try {
+            const targetEmail = email.value.trim();
+            if (!targetEmail) {
+                showMsg('err', 'Enter your email above first.');
+                return;
+            }
+
+            // This is where Firebase will send users AFTER they click the email link
+            const actionCodeSettings = {
+                url: 'https://imnotzacharyy.netlify.app/reset.html',
+                handleCodeInApp: true
+            };
+
+            await auth.sendPasswordResetEmail(targetEmail, actionCodeSettings);
+            showMsg('ok', 'Password reset email sent. Check your inbox!');
+        } catch (e) {
+            showMsg('err', e.message);
+            console.error('Password reset error:', e);
+        }
+    };
+
 
     // (Optional) If popups are blocked, you can fallback to redirect:
     // googleBtn.onclick = async () => {
