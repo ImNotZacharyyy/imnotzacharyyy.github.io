@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0286b4d5-eaef-4808-86d0-0cb1ba77d434" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/netlify/functions/discord-callback.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/netlify/functions/discord-start.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logi.html" beforeDir="false" afterPath="$PROJECT_DIR$/logi.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/netlify/functions/discord-start.js" beforeDir="false" afterPath="$PROJECT_DIR$/netlify/functions/discord-start.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +93,7 @@
       <workItem from="1753668496997" duration="224000" />
       <workItem from="1753923983769" duration="118000" />
       <workItem from="1755829132296" duration="434000" />
-      <workItem from="1755829600410" duration="3031000" />
+      <workItem from="1755829600410" duration="3189000" />
     </task>
     <servers />
   </component>

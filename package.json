@@ -1,0 +1,8 @@
+{
+  "name": "imnotzacharyy-site",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "firebase-admin": "^12.6.0"
+  }
+}

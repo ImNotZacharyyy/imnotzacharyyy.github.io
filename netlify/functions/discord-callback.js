@@ -1,4 +1,3 @@
-const fetch = (...args) => import('node-fetch').then(({default: f}) => f(...args));
 const admin = require('firebase-admin');
 
 let app;
@@ -17,12 +16,11 @@ function getAdmin() {
 
 exports.handler = async (event) => {
     try {
-        const code = (new URLSearchParams(event.queryStringParameters)).get('code');
-        if (!code) {
-            return { statusCode: 400, body: 'Missing code' };
-        }
+        const params = new URLSearchParams(event.queryStringParameters || {});
+        const code = params.get('code');
+        if (!code) return { statusCode: 400, body: 'Missing code' };
 
-        // 1) Exchange code for token
+        // 1) Exchange code for token (Node 18+ has fetch globally)
         const tokenRes = await fetch('https://discord.com/api/oauth2/token', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -39,8 +37,7 @@ exports.handler = async (event) => {
             const t = await tokenRes.text();
             return { statusCode: 400, body: `Token exchange failed: ${t}` };
         }
-        const tokenJson = await tokenRes.json();
-        const accessToken = tokenJson.access_token;
+        const { access_token: accessToken } = await tokenRes.json();
 
         // 2) Fetch Discord user
         const userRes = await fetch('https://discord.com/api/users/@me', {
@@ -51,12 +48,11 @@ exports.handler = async (event) => {
             return { statusCode: 400, body: `User fetch failed: ${t}` };
         }
         const du = await userRes.json();
-        // du.id, du.username, du.discriminator (or global_name), du.email (if scope granted), du.verified
 
         // 3) Mint Firebase custom token
         getAdmin();
         const uid = `discord_${du.id}`;
-        const additionalClaims = {
+        const claims = {
             provider: 'discord',
             discord: {
                 id: du.id,
@@ -66,16 +62,13 @@ exports.handler = async (event) => {
                 verified: du.verified || false
             }
         };
-        const customToken = await admin.auth().createCustomToken(uid, additionalClaims);
+        const customToken = await admin.auth().createCustomToken(uid, claims);
 
-        // 4) Redirect back to your site with token in URL fragment (not logged)
-        const site = `https://${process.env.URL ? new URL(process.env.URL).host : '<your-site>.netlify.app'}`;
-        const redirectTo = `${site}/logi.html#firebase_custom_token=${encodeURIComponent(customToken)}`;
+        // 4) Redirect back with token in hash (so it won’t hit logs)
+        const siteOrigin = process.env.URL || `https://${process.env.DEPLOY_PRIME_URL || '<your-site>.netlify.app'}`;
+        const redirectTo = `${siteOrigin}/logi.html#firebase_custom_token=${encodeURIComponent(customToken)}`;
 
-        return {
-            statusCode: 302,
-            headers: { Location: redirectTo }
-        };
+        return { statusCode: 302, headers: { Location: redirectTo } };
     } catch (e) {
         console.error(e);
         return { statusCode: 500, body: 'Internal error' };
