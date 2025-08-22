@@ -20,16 +20,19 @@ exports.handler = async (event) => {
         const code = params.get('code');
         if (!code) return { statusCode: 400, body: 'Missing code' };
 
-        // 1) Exchange code for token (Node 18+ has fetch globally)
+        // 1) Exchange code -> token
         const tokenRes = await fetch('https://discord.com/api/oauth2/token', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+            },
             body: new URLSearchParams({
                 client_id: process.env.DISCORD_CLIENT_ID,
                 client_secret: process.env.DISCORD_CLIENT_SECRET,
                 grant_type: 'authorization_code',
                 code,
-                redirect_uri: process.env.DISCORD_REDIRECT_URI
+                redirect_uri: process.env.DISCORD_REDIRECT_URI // MUST match discord-start and Discord dev portal
             })
         });
 
@@ -37,12 +40,31 @@ exports.handler = async (event) => {
             const t = await tokenRes.text();
             return { statusCode: 400, body: `Token exchange failed: ${t}` };
         }
-        const { access_token: accessToken } = await tokenRes.json();
+        const tokenJson = await tokenRes.json();
+        const accessToken = tokenJson.access_token;
+        const tokenType = (tokenJson.token_type || '').toLowerCase(); // should be 'bearer'
+        const scopes = (tokenJson.scope || '').split(' ');
+
+        if (!accessToken) {
+            return { statusCode: 400, body: `Token exchange missing access_token.` };
+        }
+        if (tokenType !== 'bearer') {
+            return { statusCode: 400, body: `Unexpected token_type: ${tokenJson.token_type}` };
+        }
+        if (!scopes.includes('identify')) {
+            return { statusCode: 400, body: `Access token missing 'identify' scope. Got: ${tokenJson.scope}` };
+        }
 
         // 2) Fetch Discord user
         const userRes = await fetch('https://discord.com/api/users/@me', {
-            headers: { Authorization: `Bearer ${accessToken}` }
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Accept': 'application/json',
+                // Optional but nice:
+                'User-Agent': 'imnotzacharyy-netlify-function (https://imnotzacharyy.netlify.app)'
+            }
         });
+
         if (!userRes.ok) {
             const t = await userRes.text();
             return { statusCode: 400, body: `User fetch failed: ${t}` };
@@ -59,13 +81,13 @@ exports.handler = async (event) => {
                 username: du.username || null,
                 global_name: du.global_name || null,
                 email: du.email || null,
-                verified: du.verified || false
+                verified: !!du.verified
             }
         };
         const customToken = await admin.auth().createCustomToken(uid, claims);
 
-        // 4) Redirect back with token in hash (so it won’t hit logs)
-        const siteOrigin = process.env.URL || `https://${process.env.DEPLOY_PRIME_URL || '<your-site>.netlify.app'}`;
+        // 4) Redirect back with token in hash
+        const siteOrigin = process.env.URL || `https://${process.env.DEPLOY_PRIME_URL}`;
         const redirectTo = `${siteOrigin}/logi.html#firebase_custom_token=${encodeURIComponent(customToken)}`;
 
         return { statusCode: 302, headers: { Location: redirectTo } };
