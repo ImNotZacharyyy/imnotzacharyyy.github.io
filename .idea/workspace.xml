@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0286b4d5-eaef-4808-86d0-0cb1ba77d434" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modcommands.html" beforeDir="false" afterPath="$PROJECT_DIR$/modcommands.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +42,7 @@
     &quot;JavaScript Debug.commands.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.login.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.modcommands.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.te.html.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Node.js.script.js.executor&quot;: &quot;Run&quot;,
@@ -82,7 +84,8 @@
       <workItem from="1753501177670" duration="30000" />
       <workItem from="1753668496997" duration="224000" />
       <workItem from="1753923983769" duration="118000" />
-      <workItem from="1755829132296" duration="130000" />
+      <workItem from="1755829132296" duration="434000" />
+      <workItem from="1755829600410" duration="58000" />
     </task>
     <servers />
   </component>
