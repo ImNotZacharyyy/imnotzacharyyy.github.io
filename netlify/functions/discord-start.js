@@ -5,7 +5,7 @@ exports.handler = async () => {
 
     const authUrl =
         `https://discord.com/api/oauth2/authorize?response_type=code` +
-        `&client_id=1408287122754109492}` +
+        `&client_id=1408287122754109492` +
         `&redirect_uri=https://imnotzacharyy.netlify.app/.netlify/functions/discord-callback` +
         `&scope=email` +
         `&prompt=consent`; // consent forces fresh grant
