@@ -54,6 +54,8 @@
     <div class="divider">— or —</div>
     <button id="google" class="full">Continue with Google</button>
 
+    <button id="discord" className="full">Continue with Discord</button>
+
     <div id="status" class="muted" style="margin-top: .6rem;">Not signed in.</div>
     <div id="msg"></div>
 </div>
@@ -71,8 +73,9 @@
     };
 
     firebase.initializeApp(firebaseConfig);
+    signInWithCustomTokenFromHash().catch(console.error);
     const auth = firebase.auth();
-    const db   = firebase.firestore();
+    const db = firebase.firestore();
 
     // --- 2) Helpers + elements ---
     const $ = (id) => document.getElementById(id);
@@ -85,6 +88,8 @@
     const statusEl = $('status');
     const msgEl = $('msg');
     const forgotBtn = $('forgot');
+    const discordBtn = $('discord');
+
 
 
     function showMsg(kind, text) {
@@ -175,13 +180,26 @@
         }
     };
 
+    async function signInWithCustomTokenFromHash() {
+        const hash = new URLSearchParams(location.hash.slice(1)); // remove '#'
+        const token = hash.get('firebase_custom_token');
+        if (token) {
+            // Clear the hash early to avoid re-use on refresh
+            history.replaceState(null, '', location.pathname + location.search);
+            await auth.signInWithCustomToken(token);
+            // onAuthStateChanged will redirect
+            return true;
+        }
+        return false;
+    }
+
     // --- 5) Google sign-in (popup) ---
     googleBtn.onclick = async () => {
         showMsg('', '');
         try {
             const provider = new firebase.auth.GoogleAuthProvider();
             // Optional: force account chooser each time
-            provider.setCustomParameters({ prompt: 'select_account' });
+            provider.setCustomParameters({prompt: 'select_account'});
 
             const result = await auth.signInWithPopup(provider);
             await ensureUserDoc(result.user);
@@ -194,6 +212,12 @@
             console.error('Google sign-in error:', e);
         }
     };
+
+    discordBtn.onclick = () => {
+        // Full-page redirect to Discord OAuth (via your Netlify Function)
+        window.location.href = '/.netlify/functions/discord-start';
+    };
+
 
     // --- 6) Forgot password ? send email with link back to reset.html ---
     forgotBtn.onclick = async () => {
