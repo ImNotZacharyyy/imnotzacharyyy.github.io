@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Commands</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFD700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #444;
+        }
+
+        th {
+            background-color: #1e1e1e;
+            color: #FFD700;
+        }
+
+        tr:hover {
+            background-color: #292929;
+        }
+
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            th {
+                display: none;
+            }
+            td {
+                padding: 10px;
+                text-align: right;
+                position: relative;
+            }
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                text-align: left;
+                font-weight: bold;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>📜 Chat Commands</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Command</th>
+        <th>Usage</th>
+        <th>About</th>
+        <th>Global Cooldown</th>
+        <th>User Cooldown</th>
+        <th>Enabled</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>!addquote</td><td>!addquote test quote</td><td>Add a quote</td><td>0</td><td>0</td><td>Yes</td></tr>
+    </tbody>
+</table>
+
+</body>
+</html>
