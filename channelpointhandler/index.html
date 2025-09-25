@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Channel Point Handler</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="/assets/logo.png">
+</head>
+<body>
+
+<body>
+  <!-- top header -->
+  <header class="header">
+    <div class="left">
+      <img src="/assets/logo.png" alt="Logo" class="logo">
+      <h1>Channel Point Handler</h1>
+    </div>
+    <div class="right">
+      <!-- click this to open/close dialog -->
+      <img id="statusIcon" src="/assets/disconnected.svg" alt="Status" class="status-icon">
+    </div>
+  </header>
+
+  <!-- connection dialog -->
+<!-- connection dialog wrapper -->
+<div id="sb-dialog-backdrop" class="dialog-backdrop">
+  <div id="sb-connect-dialog" class="dialog">
+    <button class="dialog-nav-button" onclick="ClosenConnectDialog()">×</button>
+
+    <div style="display: flex; flex-direction: row; align-items: center; gap: 1em; margin-bottom: 1em;">
+      <img src="/assets/streamer.bot.png" style="height: 40px;" />
+      <label class="title">STREAMER.BOT</label>
+    </div>
+
+    <div style="display: flex; flex-direction: row; gap: 1em">
+      <div class="field">
+        <label for="sb-address">Address <span style="color: #e74c3c">*</span></label>
+        <input type="text" id="sb-address" value="127.0.0.1">
+      </div>
+      <div class="field">
+        <label for="sb-port">Port <span style="color: #e74c3c">*</span></label>
+        <input type="text" id="sb-port" value="8080">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="sb-password">Password</label>
+      <input type="password" id="sb-password">
+    </div>
+
+    <label id="sb-error-label"></label>
+    <button id="sb-connect-button" onclick="Connect()">Connect</button>
+  </div>
+</div>
+
+  <!-- sub header -->
+  <div class="sub-header">
+    <h2>Channel Points On/Off</h2>
+  </div>
+
+  <!-- main toggle -->
+  <main>
+    <label class="switch">
+      <input type="checkbox" id="sbToggle">
+      <span class="slider"></span>
+    </label>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
