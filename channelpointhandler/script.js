@@ -112,6 +112,7 @@ toggle.addEventListener("change", () => {
 
     const actionId = toggle.checked ? "toggle-on" : "toggle-off";
 
+    // RUNS THE ACTIONS
     ws.send(JSON.stringify({
       request: "DoAction",
       id: actionId,
